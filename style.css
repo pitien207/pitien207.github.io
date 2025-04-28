@@ -15,10 +15,6 @@ html {
   scroll-behavior: smooth;
 }
 
-p {
-  color: rgb(85, 85, 85);
-}
-
 /* Transition */
 
 a,
@@ -143,8 +139,11 @@ a:hover {
 }
 
 /* Sections */
-
-section {
+.section_profile,
+.section_about,
+.section_experience,
+.section_projects,
+.section_contact {
   padding-top: 4vh;
   height: 96vh;
   margin: 0 10rem;
@@ -297,6 +296,12 @@ section {
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
   text-align: center;
+  transition: all 0.3s ease;
+}
+
+.details-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
 }
 
 .section-container {
