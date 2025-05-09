@@ -1,0 +1,86 @@
+/* Preloader Container */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a, #333, #1a1a1a);
+  background-size: 200% 200%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  animation: waveEffect 4s ease infinite;
+}
+
+.preloader.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Preloader Text Container */
+.preloader-text {
+  font-size: 8rem;
+  font-weight: bold;
+  color: #fff;
+  display: flex;
+  gap: 0.3rem;
+}
+
+.preloader-text .space {
+  width: 1rem;
+}
+
+/* Individual Letters Animation */
+.preloader-text span {
+  opacity: 0;
+  text-shadow: 0px 0px 5px #fff;
+  animation: fadeIn 1s forwards;
+  animation-delay: calc(var(--index) * 0.15s);
+}
+
+/* Stay Still Animation */
+.preloader.show .preloader-text span {
+  animation: stayStill 1s forwards;
+  animation-delay: 1.5s;
+}
+
+/* Keyframes for Wave Effect Background */
+@keyframes waveEffect {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+/* Keyframes for Fade In */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes for Stay Still */
+@keyframes stayStill {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
