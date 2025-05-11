@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css_files/footer.css" />
     <link rel="stylesheet" href="css_files/sections.css" />
 
+    <link rel="stylesheet" href="script.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
     <link rel="stylesheet" href="chatbot_files/chatbot_style.css" />
     <link rel="stylesheet" href="preloader_files/preloader.css" />
@@ -34,9 +35,13 @@
         <span>M</span>
       </div>
     </div>
-
     <nav id="desktop-nav">
-      <div class="logo">Nghia Pham</div>
+      <img
+        src="assets/main_asset/Logo.png"
+        alt="logo img"
+        class="logo"
+        id="logoImage"
+      />
       <div>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
@@ -63,16 +68,17 @@
       </div>
     </nav>
     <section id="profile" class="section_profile">
-      <div class="section__pic-container">
-        <img
-          src="./assets/main_asset/Profile-Nghia.jpg"
-          alt="Nghia Pham profile picture"
-        />
-      </div>
+      <img
+        src="./assets/main_asset/Nghia_pic.jpg"
+        alt="Nghia Pham profile picture"
+        class="profile-pic"
+      />
       <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Nghia Pham</h1>
-        <p class="section__text__p2">Informatiker</p>
+        <p class="profile__text__p1">Hi, I'm Nghia Pham</p>
+        <p class="profile__text__p2">
+          Senior Data Scientist | Cloud Solutions Architect | 6x AWS Certified |
+          AI/ML & GenAI Innovator
+        </p>
         <div class="btn-container">
           <button
             class="btn btn-color-2"
@@ -81,7 +87,7 @@
             Download CV
           </button>
           <button class="btn btn-color-1" onclick="location.href='#contact'">
-            Contact Info
+            Hire Me
           </button>
         </div>
         <div id="socials-container">

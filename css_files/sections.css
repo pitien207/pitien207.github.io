@@ -13,21 +13,47 @@
 .section-container {
   display: flex;
   gap: 4rem;
-  height: 80%;
+  height: 100%;
 }
 
 /* ==== PROFILE ==== */
 #profile {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 5rem;
-  height: 80vh;
+  align-items: center;
+  gap: 2.5rem;
+  height: 90vh;
+}
+.logo {
+  width: 65px;
+  height: 65px;
+  border-radius: 40px;
+  transition: transform 0.5s ease; /* Smooth transition for scaling */
+}
+.logo:hover {
+  cursor: pointer;
+  transform: scale(1.1); /* Scale the image when hovered */
+}
+.profile-pic {
+  border-radius: 50%;
+  width: 200px;
+  height: 250px;
 }
 .section__pic-container {
   display: flex;
   height: 400px;
   width: 400px;
   margin: auto 0;
+}
+.profile__text__p1 {
+  font-size: 4.5rem;
+  text-align: center;
+}
+.profile__text__p2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 .section__text {
   align-self: center;
@@ -177,4 +203,19 @@ article {
 }
 .email-icon {
   height: 2.5rem;
+}
+
+.section__pic-container img {
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+.section__pic-container img:hover {
+  transform: scale(1.1);
+}
+
+/* Desktop nav */
+#desktop-nav {
+  background-color: #333; /* Dark background for contrast */
+  border-bottom: 2px solid white; /* White bottom border to separate it from the content below */
+  height: 80px; /* Set the height of the nav */
 }
