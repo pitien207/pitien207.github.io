@@ -5,7 +5,7 @@ script.src =
 script.onload = () => {
   // Khởi tạo EmailJS sau khi thư viện đã được tải
   emailjs.init({
-    publicKey: "mAcBfJWY7xKYm2smR",
+    publicKey: "...",
   });
 };
 
@@ -14,7 +14,7 @@ document.head.appendChild(script);
 function sendMail() {
   event.preventDefault();
   emailjs
-    .send("service_epe6mq9", "template_yx9nesm", {
+    .send("...", "...", {
       name: document.getElementById("sender_name").value,
       message: document.getElementById("sender_message").value,
       title: document.getElementById("sender_title").value,
