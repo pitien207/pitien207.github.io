@@ -1,0 +1,132 @@
+/* ==== CONTACT SECTION ==== */
+#contact {
+  color: #ddeeff; /* Main text color */
+  font-family: "Segoe UI", sans-serif;
+  padding: 40px 0;
+  background: linear-gradient(145deg, #1e1e2f, #25253b);
+  border-radius: 2rem;
+  border: 1px solid #444466;
+  box-shadow: 0 0 12px rgba(120, 120, 255, 0.08);
+  backdrop-filter: blur(2px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact .container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+#contact h2 {
+  font-size: 2rem;
+  margin: 30px 0;
+  border-bottom: 2px solid #bbddff;
+  display: inline-block;
+  padding-bottom: 5px;
+  color: #ddeeff;
+}
+
+#contact .contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+#contact .contact-card {
+  background: #22223b;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  border: 1px solid #333355;
+  box-shadow: 0 0 10px rgba(120, 120, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact .contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(120, 120, 255, 0.1);
+}
+
+#contact .contact-card i {
+  font-size: 1.8rem;
+  color: #bbddff;
+  margin-bottom: 10px;
+}
+
+#contact .contact-card h3 {
+  font-size: 1rem;
+  color: #ddeeff;
+}
+
+#contact .contact-card p {
+  color: #cce6ff;
+}
+
+#contact .beta {
+  background-color: #444466;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #fff;
+  margin-left: 5px;
+}
+
+#contact .social-icons a {
+  color: #bbddff;
+  margin-right: 10px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+#contact .social-icons a:hover {
+  color: #ffffff;
+}
+
+#contact .message-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#contact .form-row {
+  display: flex;
+  gap: 15px;
+}
+
+#contact .form-row input {
+  flex: 1;
+}
+
+#contact input,
+#contact textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: #1a1a2a;
+  border: 1px solid #333355;
+  color: #fff;
+  border-radius: 6px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+#contact input:hover,
+#contact textarea:hover {
+  background-color: #2a2a3a;
+  border-color: #444466;
+}
+
+#contact button {
+  background-color: #bbddff;
+  color: #000;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#contact button:hover {
+  background-color: #cceeff;
+  transform: scale(1.05);
+}

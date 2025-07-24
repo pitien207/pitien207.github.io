@@ -25,7 +25,7 @@ async function sendMessage() {
 }
 
 async function getGeminiResponse(userMessage) {
-  const apiKey = "AIzaSyB0QLn6IdntO9I_bFo8QLvEHH3Kat0wujc"; // Thay thế bằng API key của bạn
+  const apiKey = "AIzaSyBxht64B8uDtjSi5NWrmQT2F8sk8p2SYGg"; // Thay thế bằng API key của bạn
   const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${apiKey}`; // Giả sử đây là URL của API Gemini
 
   const requestBody = {
