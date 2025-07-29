@@ -82,12 +82,17 @@
         </p>
         <div class="btn-container">
           <button
+            id="cv_download_btn"
             class="btn btn-color-2"
             onclick="window.open('./assets/main_asset/CV.2025.pdf')"
           >
             Download CV
           </button>
-          <button class="btn btn-color-1" onclick="location.href='#contact'">
+          <button
+            id="hire_me_btn"
+            class="btn btn-color-1"
+            onclick="location.href='#contact'"
+          >
             Hire Me
           </button>
         </div>
@@ -494,6 +499,12 @@
       </div>
     </section>
 
+    <audio
+      id="hoverSound"
+      src="assets/audio/button_hover.wav"
+      preload="auto"
+    ></audio>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -508,5 +519,6 @@
     <script src="./contact_files/contact.js"></script>
 
     <script src="preloader_files/preloader.js"></script>
+    <script src="audio.js"></script>
   </body>
 </html>
