@@ -14,7 +14,7 @@ document.head.appendChild(script);
 function sendMail() {
   event.preventDefault();
   emailjs
-    .send("...", "...", {
+    .send("...", "template_yx9nesm", {
       name: document.getElementById("sender_name").value,
       message: document.getElementById("sender_message").value,
       title: document.getElementById("sender_title").value,
