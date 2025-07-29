@@ -28,6 +28,7 @@ script.onload = async () => {
 document.head.appendChild(script);
 
 function sendMail(serviceID, templateID) {
+  event.preventDefault();
   emailjs
     .send(serviceID, templateID, {
       name: document.getElementById("sender_name").value,
