@@ -48,6 +48,5 @@ function sendMail(serviceID, templateID) {
     })
     .catch(function (error) {
       console.error("Failed to send message:", error);
-      alert("There was an error sending your message. Please try again.");
     });
 }
