@@ -1,26 +1,26 @@
-const script = document.createElement("script");
-script.type = "text/javascript";
-script.src =
-  "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
-script.onload = () => {
-  // Khởi tạo EmailJS sau khi thư viện đã được tải
-  emailjs.init({
-    publicKey: "...",
-  });
-};
-
-document.head.appendChild(script);
-
-function sendMail() {
+async function sendMail(event) {
   event.preventDefault();
-  emailjs
-    .send("...", "template_yx9nesm", {
-      name: document.getElementById("sender_name").value,
-      message: document.getElementById("sender_message").value,
-      title: document.getElementById("sender_title").value,
-      email: document.getElementById("sender_email").value,
-    })
-    .then(function () {
+
+  const name = document.getElementById("sender_name").value;
+  const message = document.getElementById("sender_message").value;
+  const title = document.getElementById("sender_title").value;
+  const email = document.getElementById("sender_email").value;
+
+  try {
+    const response = await fetch(
+      "https://nghiawebsite.netlify.app/.netlify/functions/emails_key_handle",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, message, title, email }),
+      }
+    );
+
+    const result = await response.json();
+
+    if (response.ok) {
       alert("Your message has been sent successfully!");
 
       // Clear the input fields
@@ -28,9 +28,12 @@ function sendMail() {
       document.getElementById("sender_message").value = "";
       document.getElementById("sender_title").value = "";
       document.getElementById("sender_email").value = "";
-    })
-    .catch(function (error) {
-      console.error("Failed to send message:", error);
+    } else {
+      console.error("Server error:", result);
       alert("There was an error sending your message. Please try again.");
-    });
+    }
+  } catch (error) {
+    console.error("Network error:", error);
+    alert("An unexpected error occurred. Please try again later.");
+  }
 }
