@@ -44,13 +44,16 @@ async function getGeminiResponse(userMessage) {
     },
   };
 
-  const response = await fetch(/.netlify/functions/key_handle, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(requestBody),
-  });
+  const response = await fetch(
+    "https://nghiawebsite.netlify.app/.netlify/functions/key_handle",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestBody),
+    }
+  );
 
   const data = await response.json();
 
