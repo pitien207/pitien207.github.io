@@ -25,9 +25,6 @@ async function sendMessage() {
 }
 
 async function getGeminiResponse(userMessage) {
-  const apiKey = ""; // Thay thế bằng API key của bạn
-  const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${apiKey}`; // Giả sử đây là URL của API Gemini
-
   const requestBody = {
     contents: [
       {
@@ -47,7 +44,7 @@ async function getGeminiResponse(userMessage) {
     },
   };
 
-  const response = await fetch(apiUrl, {
+  const response = await fetch(/.netlify/functions/key_handle, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
