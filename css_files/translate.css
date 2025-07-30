@@ -1,0 +1,55 @@
+/* Style cho dropdown languageSwitcher */
+#languageSwitcher {
+  appearance: none; /* Bỏ style mặc định của trình duyệt */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-color: #fff;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 40px 8px 12px;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s ease;
+  width: 140px;
+  position: relative;
+}
+
+/* Hover và focus */
+#languageSwitcher:hover,
+#languageSwitcher:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Thêm mũi tên custom bên phải */
+#languageSwitcher {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 16px;
+}
+
+/* Tắt mũi tên mặc định trên Firefox */
+@-moz-document url-prefix() {
+  #languageSwitcher {
+    text-indent: 0.01px;
+    text-overflow: "";
+  }
+}
+
+#languageSwitcher {
+  position: fixed;
+  top: 20px; /* khoảng cách từ trên cùng */
+  right: 20px; /* khoảng cách từ mép phải */
+  z-index: 1000; /* ưu tiên hiển thị trên các phần tử khác */
+  height: 30px;
+  font-size: 14px;
+  background-color: white; /* nền trắng cho dễ nhìn */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px 8px;
+  cursor: pointer;
+}

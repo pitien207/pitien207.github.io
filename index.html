@@ -21,6 +21,7 @@
 
     <link rel="stylesheet" href="css_files/timeline.css" />
     <link rel="stylesheet" href="css_files/chat_bubble.css" />
+    <link rel="stylesheet" href="css_files/translate.css" />
   </head>
   <body>
     <div class="preloader" id="preloader">
@@ -54,6 +55,15 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
+      <!-- Dropdown chọn ngôn ngữ -->
+      <select id="languageSwitcher">
+        <option value="">🌐 Languages</option>
+        <option value="vi">🇻🇳 Tiếng Việt</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="en">🇺🇸 English</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="fr">🇫🇷 Français</option>
+      </select>
     </nav>
     <nav id="hamburger-nav">
       <div class="logo">Nghia Pham</div>
@@ -522,6 +532,13 @@
     <script src="preloader_files/preloader.js"></script>
     <script src="timeline.js"></script>
     <script src="chat_bubble.js"></script>
+
+    <!-- Google Translate element (ẩn) -->
+    <div id="google_translate_element"></div>
+
+    <script src="translate.js"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <script src="audio.js"></script>
   </body>
 </html>
