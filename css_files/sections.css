@@ -101,6 +101,11 @@
 }
 .about-pic {
   border-radius: 2rem;
+  transition: transform 0.5s ease; /* Smooth transition for scaling */
+}
+.about-pic:hover {
+  cursor: pointer;
+  transform: scale(1.1); /* Scale the image when hovered */
 }
 .arrow {
   position: absolute;

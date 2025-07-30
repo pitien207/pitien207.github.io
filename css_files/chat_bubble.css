@@ -1,0 +1,57 @@
+.chat-bubble {
+  max-width: 280px;
+  background: #f9f9f9; /* nền sáng nhẹ thay vì trắng quá */
+  border: 1.5px solid #555; /* viền tối hơn và mảnh hơn */
+  border-radius: 16px;
+  padding: 14px 18px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12); /* shadow nhẹ hơn và mịn */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  color: #222;
+  position: absolute;
+  white-space: pre-wrap;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+  line-height: 1.4;
+}
+
+/* Mũi tên tail đơn giản, mềm mại hơn */
+.chat-bubble::after {
+  content: "";
+  position: absolute;
+  top: 20px; /* chỉnh cho phù hợp với padding mới */
+  left: -14px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 14px solid #555; /* màu viền đậm */
+  filter: drop-shadow(
+    0 1px 0 rgba(0, 0, 0, 0.1)
+  ); /* tạo bóng nhẹ cho mũi tên */
+  z-index: 998;
+}
+
+.chat-bubble::before {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: -12px;
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-right: 12px solid #f9f9f9; /* nền mũi tên trùng với nền bubble */
+  z-index: 999;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,12 +1,10 @@
 /* ==== CONTACT SECTION ==== */
 #contact {
-  color: #ddeeff; /* Main text color */
+  color: #e0f0ff;
   font-family: "Segoe UI", sans-serif;
   padding: 40px 0;
-  background: linear-gradient(145deg, #1e1e2f, #25253b);
-  border-radius: 2rem;
-  border: 1px solid #444466;
-  box-shadow: 0 0 12px rgba(120, 120, 255, 0.08);
+
+  box-shadow: 0 0 12px rgba(0, 188, 212, 0.08);
   backdrop-filter: blur(2px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -20,10 +18,10 @@
 #contact h2 {
   font-size: 2rem;
   margin: 30px 0;
-  border-bottom: 2px solid #bbddff;
+  border-bottom: 2px solid #00bcd4;
   display: inline-block;
   padding-bottom: 5px;
-  color: #ddeeff;
+  color: #e0f0ff;
 }
 
 #contact .contact-grid {
@@ -34,46 +32,37 @@
 }
 
 #contact .contact-card {
-  background: #22223b;
+  background: #202040;
   padding: 20px;
   border-radius: 10px;
   text-align: left;
-  border: 1px solid #333355;
-  box-shadow: 0 0 10px rgba(120, 120, 255, 0.05);
+  border: 1px solid #2e2e4d;
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #contact .contact-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(120, 120, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.1);
 }
 
 #contact .contact-card i {
   font-size: 1.8rem;
-  color: #bbddff;
+  color: #00bcd4;
   margin-bottom: 10px;
 }
 
 #contact .contact-card h3 {
   font-size: 1rem;
-  color: #ddeeff;
+  color: #e0f0ff;
 }
 
 #contact .contact-card p {
-  color: #cce6ff;
-}
-
-#contact .beta {
-  background-color: #444466;
-  font-size: 0.7rem;
-  padding: 2px 6px;
-  border-radius: 4px;
-  color: #fff;
-  margin-left: 5px;
+  color: #bbdfff;
 }
 
 #contact .social-icons a {
-  color: #bbddff;
+  color: #00bcd4;
   margin-right: 10px;
   font-size: 1.2rem;
   transition: color 0.3s ease;
@@ -100,10 +89,10 @@
 
 #contact input,
 #contact textarea {
-  width: 100%;
+  width: 97, 5%;
   padding: 12px;
   background-color: #1a1a2a;
-  border: 1px solid #333355;
+  border: 1px solid #2e2e4d;
   color: #fff;
   border-radius: 6px;
   transition: background 0.3s ease, border-color 0.3s ease;
@@ -111,12 +100,12 @@
 
 #contact input:hover,
 #contact textarea:hover {
-  background-color: #2a2a3a;
-  border-color: #444466;
+  background-color: #25253d;
+  border-color: #00bcd4;
 }
 
 #contact button {
-  background-color: #bbddff;
+  background-color: #00bcd4;
   color: #000;
   border: none;
   padding: 12px;
@@ -127,6 +116,6 @@
 }
 
 #contact button:hover {
-  background-color: #cceeff;
+  background-color: #00acc1;
   transform: scale(1.05);
 }
