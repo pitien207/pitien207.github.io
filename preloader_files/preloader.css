@@ -1,19 +1,15 @@
-/* Preloader Container */
 .preloader {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(135deg, #1a1a1a, #333, #1a1a1a);
-  background-size: 200% 200%;
+  inset: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(214, 179, 122, 0.18), transparent 26%),
+    linear-gradient(160deg, #07111e 0%, #0b1625 55%, #040b14 100%);
   z-index: 9999;
   opacity: 1;
   transition: opacity 0.5s ease;
-  animation: waveEffect 4s ease infinite;
 }
 
 .preloader.hide {
@@ -21,47 +17,32 @@
   pointer-events: none;
 }
 
-/* Preloader Text Container */
 .preloader-text {
-  font-size: 8rem;
-  font-weight: bold;
-  color: #fff;
   display: flex;
   gap: 0.3rem;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 9vw, 7.5rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
 }
 
 .preloader-text .space {
-  width: 1rem;
+  width: clamp(0.35rem, 1vw, 1rem);
 }
 
-/* Individual Letters Animation */
 .preloader-text span {
   opacity: 0;
-  text-shadow: 0px 0px 5px #fff;
+  text-shadow: 0 0 16px rgba(214, 179, 122, 0.38);
   animation: fadeIn 1s forwards;
   animation-delay: calc(var(--index) * 0.15s);
 }
 
-/* Stay Still Animation */
 .preloader.show .preloader-text span {
   animation: stayStill 1s forwards;
   animation-delay: 1.5s;
 }
 
-/* Keyframes for Wave Effect Background */
-@keyframes waveEffect {
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 100%;
-  }
-}
-
-/* Keyframes for Fade In */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -73,7 +54,6 @@
   }
 }
 
-/* Keyframes for Stay Still */
 @keyframes stayStill {
   0% {
     opacity: 1;

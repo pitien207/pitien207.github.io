@@ -38,7 +38,10 @@ function sendMail(serviceID, templateID) {
       email: document.getElementById("sender_email").value,
     })
     .then(function () {
-      alert("Your message has been sent successfully!");
+      alert(
+        window.getPortfolioTranslation?.("contact.success") ||
+          "Your message has been sent successfully!"
+      );
 
       // Clear the input fields
       document.getElementById("sender_name").value = "";
@@ -48,5 +51,9 @@ function sendMail(serviceID, templateID) {
     })
     .catch(function (error) {
       console.error("Failed to send message:", error);
+      alert(
+        window.getPortfolioTranslation?.("contact.error") ||
+          "Failed to send message. Please try again."
+      );
     });
 }

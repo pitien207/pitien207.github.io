@@ -41,13 +41,16 @@
       </div>
     </div>
     <nav id="desktop-nav">
-      <img
-        src="assets/main_asset/Logo.png"
-        alt="logo img"
-        class="logo"
-        id="logoImage"
-      />
-      <div>
+      <a href="#profile" class="brand-mark" aria-label="Go to profile section">
+        <img
+          src="assets/main_asset/Logo.png"
+          alt="logo img"
+          class="logo"
+          id="logoImage"
+        />
+        <span class="brand-name">Nghia Pham</span>
+      </a>
+      <div class="nav-links-wrapper">
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
@@ -55,18 +58,32 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
-      <!-- Dropdown chọn ngôn ngữ -->
-      <select id="languageSwitcher">
-        <option value="">🌐 Languages</option>
-        <option value="vi">🇻🇳 Tiếng Việt</option>
-        <option value="de">🇩🇪 Deutsch</option>
-        <option value="en">🇺🇸 English</option>
-        <option value="ja">🇯🇵 日本語</option>
-        <option value="fr">🇫🇷 Français</option>
-      </select>
+      <div class="language-menu" data-language-menu data-language="vi">
+        <button
+          type="button"
+          class="language-menu-trigger"
+          data-language-trigger
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-label="Choose website language"
+        >
+          <span class="language-menu-current">
+            <span class="language-menu-current-flag" data-language-flag aria-hidden="true"
+              >🇻🇳</span
+            >
+            <span class="language-menu-current-label" data-language-label
+              >Tiếng Việt</span
+            >
+          </span>
+        </button>
+        <div class="language-menu-panel" data-language-panel role="listbox"></div>
+      </div>
     </nav>
     <nav id="hamburger-nav">
-      <div class="logo">Nghia Pham</div>
+      <a href="#profile" class="brand-mark" aria-label="Go to profile section">
+        <img src="assets/main_asset/Logo.png" alt="logo img" class="logo" />
+        <span class="brand-name">Nghia Pham</span>
+      </a>
       <div class="hamburger-menu">
         <div class="hamburger-icon" onclick="toggleMenu()">
           <span></span>
@@ -78,27 +95,65 @@
           <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
           <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+          <div class="menu-language">
+            <div
+              class="language-menu language-menu-mobile"
+              data-language-menu
+              data-language="vi"
+            >
+              <button
+                type="button"
+                class="language-menu-trigger"
+                data-language-trigger
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-label="Choose website language"
+              >
+                <span class="language-menu-current">
+                  <span
+                    class="language-menu-current-flag"
+                    data-language-flag
+                    aria-hidden="true"
+                    >🇻🇳</span
+                  >
+                  <span class="language-menu-current-label" data-language-label
+                    >Tiếng Việt</span
+                  >
+                </span>
+              </button>
+              <div class="language-menu-panel" data-language-panel role="listbox"></div>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
     <section id="profile" class="section_profile">
-      <img
-        id="profile-pic"
-        src="./assets/main_asset/Profile-Nghia.jpg"
-        alt="Nghia Pham profile picture"
-        class="profile-pic"
-      />
+      <div class="profile-visual">
+        <div class="profile-frame">
+          <img
+            id="profile-pic"
+            src="./assets/main_asset/Profile-Nghia.jpg"
+            alt="Nghia Pham profile picture"
+            class="profile-pic"
+          />
+        </div>
+      </div>
       <div class="section__text">
-        <p class="profile__text__p1">Hi, I'm Nghia Pham</p>
+        <p class="section__text__p1">Portfolio</p>
+        <h1 class="profile__text__p1">Hi, I'm Nghia Pham</h1>
         <p class="profile__text__p2">
-          IT-Administrator | Softwareentwickler & Webentwickler | IT-Security
+          IT Administrator | Software Developer | Web Developer | IT Security
           Assistant
+        </p>
+        <p class="profile__text__lead">
+          I build dependable digital experiences with a focus on clean
+          interfaces, secure systems and practical problem solving.
         </p>
         <div class="btn-container">
           <button
             id="cv_download_btn"
             class="btn btn-color-2"
-            onclick="window.open('./assets/main_asset/CV.2025.pdf')"
+            onclick="window.open('./assets/main_asset/CV.2025.pdf', '_blank', 'noopener,noreferrer')"
           >
             Download CV
           </button>
@@ -114,6 +169,7 @@
           <a
             href="https://www.linkedin.com/in/trong-nghia-pham-13721a35a/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <img
               src="./assets/main_asset/linkedin.png"
@@ -121,14 +177,18 @@
               class="icon"
             />
           </a>
-          <a href="#contact">
+          <a href="#contact" aria-label="Go to contact section">
             <img
               src="./assets/main_asset/gmail.png"
               alt="Contact Section"
               class="icon"
             />
           </a>
-          <a href="https://github.com/pitien207" target="_blank">
+          <a
+            href="https://github.com/pitien207"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               src="./assets/main_asset/github.png"
               alt="My Github Profile"
@@ -138,6 +198,7 @@
           <a
             href="https://www.facebook.com/nghia.phamtrong.756"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <img
               src="./assets/main_asset/facebook.png"
@@ -315,16 +376,20 @@
             <h2 class="experience-sub-title project-title">
               Turing machine simulator
             </h2>
+            <p class="project-copy">
+              A visual simulator for exploring states, transitions and machine
+              logic in a clearer way.
+            </p>
             <div class="btn-container">
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
+                onclick="window.open('https://github.com/', '_blank', 'noopener,noreferrer')"
               >
                 Github
               </button>
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
+                onclick="window.open('https://github.com/', '_blank', 'noopener,noreferrer')"
               >
                 Live Demo
               </button>
@@ -341,16 +406,20 @@
             <h2 class="experience-sub-title project-title">
               Cloud with Raspberry Pi 5
             </h2>
+            <p class="project-copy">
+              A private cloud setup focused on self-hosted infrastructure,
+              storage and hands-on system administration.
+            </p>
             <div class="btn-container">
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
+                onclick="window.open('https://github.com/', '_blank', 'noopener,noreferrer')"
               >
                 Github
               </button>
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
+                onclick="window.open('https://github.com/', '_blank', 'noopener,noreferrer')"
               >
                 Live Demo
               </button>
@@ -367,16 +436,20 @@
             <h2 class="experience-sub-title project-title">
               Android Application
             </h2>
+            <p class="project-copy">
+              A Kotlin-based mobile application built around a clean user flow
+              and reliable app structure.
+            </p>
             <div class="btn-container">
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
+                onclick="window.open('https://github.com/', '_blank', 'noopener,noreferrer')"
               >
                 Github
               </button>
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
+                onclick="window.open('https://github.com/', '_blank', 'noopener,noreferrer')"
               >
                 Live Demo
               </button>
@@ -386,6 +459,8 @@
       </div>
     </section>
     <section id="contact">
+      <p class="section__text__p1">Let's work together</p>
+      <h1 class="title">Contact</h1>
       <div class="container">
         <h2>CONTACT ME</h2>
         <div class="contact-grid">
@@ -408,9 +483,30 @@
             <i class="fas fa-share-alt"></i>
             <h3>Social Space</h3>
             <div class="social-icons">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-github"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a
+                href="https://www.facebook.com/nghia.phamtrong.756"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://github.com/pitien207"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Github"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/trong-nghia-pham-13721a35a/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -438,7 +534,7 @@
             type="text"
             id="sender_title"
             name="title"
-            placeholder="title"
+            placeholder="Subject"
             required
           />
           <textarea
@@ -457,7 +553,7 @@
         <div class="nav-links-container">
           <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -482,7 +578,7 @@
       <div class="chat">
         <div class="model">
           <img src="./assets/chatbot_asset/robot_white.svg" alt="robot_icon" />
-          <p>Hi, how can i help you?</p>
+          <p class="chatbot-greeting">Hi, how can i help you?</p>
         </div>
       </div>
       <div class="input-area">
@@ -533,11 +629,7 @@
     <script src="timeline.js"></script>
     <script src="chat_bubble.js"></script>
 
-    <!-- Google Translate element (ẩn) -->
-    <div id="google_translate_element"></div>
-
     <script src="translate.js"></script>
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script src="audio.js"></script>
   </body>

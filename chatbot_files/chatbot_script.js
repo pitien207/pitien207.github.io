@@ -7,8 +7,7 @@ async function sendMessage() {
       `
           <div class="user">
             <p>${userMessage}</p>
-          </div>      
-  
+          </div>
           `
     );
 
@@ -20,8 +19,20 @@ async function sendMessage() {
     // Cuộn xuống cuối cùng
     scrollToBottom();
 
-    const response = await getGeminiResponse(userMessage);
+    await getGeminiResponse(userMessage);
   }
+}
+
+function renderModelMessage(message) {
+  document.querySelector(".chat-window .chat").insertAdjacentHTML(
+    "beforeend",
+    `
+        <div class="model">
+          <img src="./assets/chatbot_asset/robot_white.svg" alt="robot_icon" />
+          <p>${message}</p>
+        </div>
+      `
+  );
 }
 
 async function getGeminiResponse(userMessage) {
@@ -44,36 +55,38 @@ async function getGeminiResponse(userMessage) {
     },
   };
 
-  const response = await fetch(
-    "https://nghiawebsite.netlify.app/.netlify/functions/key_handle",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(requestBody),
+  try {
+    const response = await fetch(
+      "https://nghiawebsite.netlify.app/.netlify/functions/key_handle",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      }
+    );
+
+    const data = await response.json();
+    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+    if (!response.ok || !text) {
+      throw new Error("Invalid chatbot response");
     }
-  );
 
-  const data = await response.json();
-
-  // Xóa loader sau khi nhận phản hồi
-  document.querySelector(".loader").remove();
-
-  document.querySelector(".chat-window .chat").insertAdjacentHTML(
-    "beforeend",
-    `
-        <div class="model">
-          <img src="./assets/chatbot_asset/robot_white.svg" alt="robot_icon" />
-          <p>${data.candidates[0].content.parts[0].text}</p>
-        </div>      
-      `
-  );
-
-  // Cuộn xuống cuối cùng
-  scrollToBottom();
-
-  return data.candidates[0].content.parts[0].text;
+    renderModelMessage(text);
+    return text;
+  } catch (error) {
+    console.error("Failed to fetch chatbot response:", error);
+    const fallbackMessage =
+      window.getPortfolioTranslation?.("chat.error") ||
+      "Something went wrong. Please try again in a moment.";
+    renderModelMessage(fallbackMessage);
+    return fallbackMessage;
+  } finally {
+    document.querySelector(".loader")?.remove();
+    scrollToBottom();
+  }
 }
 
 document

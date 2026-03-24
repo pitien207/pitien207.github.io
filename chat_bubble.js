@@ -1,81 +1,148 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const quotes1 = [
-    "Mỗi dòng code là một bước xây nên thế giới bạn muốn tạo ra.",
-    "Code is like humor. When you have to explain it, it’s bad. – Cory House",
-    "In der IT gibt es keine Probleme – nur Herausforderungen und Lösungen.",
-    "Công nghệ không phải là tương lai – nó là hiện tại đang diễn ra từng giây.",
-    "The best error message is the one that never shows up.",
-    "Không phải cứ biết nhiều ngôn ngữ lập trình là giỏi, mà là biết chọn đúng công cụ cho đúng vấn đề.",
-    "First, solve the problem. Then, write the code. – John Johnson",
-    "IT là nơi mỗi ngày đều phải học lại để không bị bỏ lại phía sau.",
-    "In der Welt der Technik ist Stillstand der erste Schritt zum Rückschritt.",
-    "Stay curious, keep learning — that’s the real power in tech.",
-  ];
-  const quotes2 = [
-    "Cuộc sống là để tận hưởng, không phải để tồn tại.",
-    "Life is short. Take the trip. Buy the shoes. Eat the cake.",
-    "Reisen ist die einzige Sache, die man kauft und die einen reicher macht.",
-    "Mỗi hành trình là một câu chuyện, và bạn chính là nhân vật chính.",
-    "Collect moments, not things.",
-    "Hãy sống như thể hôm nay là ngày cuối cùng được tự do bay nhảy.",
-    "The world is wide, and I want to make some memories in every corner of it.",
-    "Làm điều mình yêu, đến nơi mình thích — đó mới là sống.",
-    "Abenteuer beginnen, wo Pläne enden.",
-    "Good vibes only — because life’s too beautiful to waste on worries.",
-  ];
+const bubbleQuotes = {
+  en: {
+    profile: [
+      "Every line of code helps build the world you want to create.",
+      "Code is like humor. When you have to explain it, it is bad. - Cory House",
+      "In IT there are no dead ends, only challenges and solutions.",
+      "Technology is not the future. It is the present happening every second.",
+      "The best error message is the one that never shows up.",
+      "Good engineering is choosing the right tool for the right problem.",
+      "First, solve the problem. Then, write the code. - John Johnson",
+      "Stay curious, keep learning, and keep moving forward.",
+    ],
+    about: [
+      "Life is here to be enjoyed, not just endured.",
+      "Life is short. Take the trip. Buy the shoes. Eat the cake.",
+      "Travel is the only thing you buy that makes you richer.",
+      "Every journey becomes a story, and you are the main character.",
+      "Collect moments, not things.",
+      "The world is wide, and every corner can hold a memory.",
+      "Do what you love and go where you feel alive.",
+      "Good vibes only, because life is too beautiful for constant worry.",
+    ],
+  },
+  vi: {
+    profile: [
+      "Mỗi dòng code là một bước để tạo nên thế giới bạn muốn xây dựng.",
+      "Code hay là code không cần giải thích quá nhiều.",
+      "Trong CNTT không có ngõ cụt, chỉ có thử thách và lời giải.",
+      "Công nghệ không phải là tương lai, nó là hiện tại đang diễn ra từng giây.",
+      "Thông báo lỗi tốt nhất là thông báo không bao giờ xuất hiện.",
+      "Kỹ sư giỏi là người chọn đúng công cụ cho đúng vấn đề.",
+      "Giải quyết bài toán trước, rồi hãy viết code.",
+      "Càng tò mò, càng học được nhiều điều mới.",
+    ],
+    about: [
+      "Cuộc sống là để tận hưởng, không chỉ để tồn tại.",
+      "Đời ngắn lắm, hãy đi, hãy sống và hãy trải nghiệm.",
+      "Điều đáng giá nhất sau mỗi chuyến đi là kỷ niệm mang về.",
+      "Mỗi hành trình đều là một câu chuyện của riêng bạn.",
+      "Hãy gom góp khoảnh khắc thay vì chỉ gom đồ vật.",
+      "Thế giới rộng lớn, và góc nào cũng có thể trở thành một ký ức đẹp.",
+      "Làm điều mình yêu và đến nơi khiến mình thấy sống động.",
+      "Giữ năng lượng tích cực, vì cuộc sống quá đẹp để chỉ lo lắng.",
+    ],
+  },
+  de: {
+    profile: [
+      "Jede Zeile Code hilft dabei, die Welt zu bauen, die du erschaffen willst.",
+      "Code ist wie Humor. Wenn man ihn erklären muss, ist er nicht gut.",
+      "In der IT gibt es keine Sackgassen, nur Herausforderungen und Lösungen.",
+      "Technologie ist nicht die Zukunft, sondern die Gegenwart.",
+      "Die beste Fehlermeldung ist die, die nie erscheint.",
+      "Gutes Engineering bedeutet, das richtige Werkzeug für das richtige Problem zu wählen.",
+      "Erst das Problem lösen, dann den Code schreiben.",
+      "Bleib neugierig, lerne weiter und entwickle dich jeden Tag.",
+    ],
+    about: [
+      "Das Leben ist zum Genießen da, nicht nur zum Funktionieren.",
+      "Das Leben ist kurz. Mach die Reise. Kauf die Schuhe. Iss den Kuchen.",
+      "Reisen ist das Einzige, das man kauft und das einen reicher macht.",
+      "Jede Reise wird zu einer Geschichte, und du bist die Hauptfigur.",
+      "Sammle Momente, keine Dinge.",
+      "Die Welt ist weit, und jede Ecke kann eine Erinnerung werden.",
+      "Tu, was du liebst, und geh dorthin, wo du dich lebendig fühlst.",
+      "Gute Energie nur, denn das Leben ist zu schön für dauernde Sorgen.",
+    ],
+  },
+};
 
-  let currentIndex = 0;
-  let chatTimeout;
+let currentBubbleIndex = 0;
+let chatTimeout;
 
-  // Hàm xử lý khi click ảnh
-  function handleClick(section, img, quotes) {
-    // Xóa bubble cũ nếu có
-    const existingBubble = document.querySelector(".chat-bubble");
-    if (existingBubble) {
-      clearTimeout(chatTimeout);
-      existingBubble.remove();
-    }
+function getBubbleLanguage() {
+  return window.getPortfolioLanguage?.() || "en";
+}
 
-    // Tạo bubble mới
-    const chatBubble = document.createElement("div");
-    chatBubble.className = "chat-bubble";
-    chatBubble.innerHTML = `${quotes[currentIndex]}`;
-    currentIndex = (currentIndex + 1) % quotes.length;
+function placeBubble(section, img, bubble) {
+  const bubbleWidth = bubble.offsetWidth;
+  const bubbleHeight = bubble.offsetHeight;
+  const sectionWidth = section.clientWidth;
+  const spacing = 16;
+  const rightPosition = img.offsetLeft + img.offsetWidth + spacing;
+  const fitsRight = rightPosition + bubbleWidth <= sectionWidth - spacing;
+  const shouldPlaceBelow = window.innerWidth <= 768 || !fitsRight;
 
-    section.appendChild(chatBubble);
+  if (shouldPlaceBelow) {
+    const centeredLeft = img.offsetLeft + img.offsetWidth / 2 - bubbleWidth / 2;
+    const safeLeft = Math.max(
+      spacing,
+      Math.min(centeredLeft, sectionWidth - bubbleWidth - spacing)
+    );
 
-    // Vị trí tương đối với ảnh
-    const offsetTop = img.offsetTop;
-    const offsetLeft = img.offsetLeft + img.offsetWidth + 10;
-
-    chatBubble.style.position = "absolute";
-    chatBubble.style.top = offsetTop + "px";
-    chatBubble.style.left = offsetLeft + "px";
-
-    chatTimeout = setTimeout(() => {
-      chatBubble.remove();
-    }, 5000);
+    bubble.classList.add("chat-bubble--below");
+    bubble.style.top = img.offsetTop + img.offsetHeight + spacing + "px";
+    bubble.style.left = safeLeft + "px";
+    return;
   }
 
-  // Thiết lập cho ảnh profile
+  const safeTop = Math.max(
+    img.offsetTop,
+    img.offsetTop + (img.offsetHeight - bubbleHeight) / 2
+  );
+
+  bubble.classList.remove("chat-bubble--below");
+  bubble.style.top = safeTop + "px";
+  bubble.style.left = rightPosition + "px";
+}
+
+function handleClick(section, img, quoteGroup) {
+  const existingBubble = document.querySelector(".chat-bubble");
+  if (existingBubble) {
+    clearTimeout(chatTimeout);
+    existingBubble.remove();
+  }
+
+  const language = getBubbleLanguage();
+  const quotes = bubbleQuotes[language]?.[quoteGroup] || bubbleQuotes.en[quoteGroup];
+  const chatBubble = document.createElement("div");
+  chatBubble.className = "chat-bubble";
+  chatBubble.textContent = quotes[currentBubbleIndex];
+  currentBubbleIndex = (currentBubbleIndex + 1) % quotes.length;
+
+  section.appendChild(chatBubble);
+  chatBubble.style.position = "absolute";
+  placeBubble(section, img, chatBubble);
+
+  chatTimeout = setTimeout(() => {
+    chatBubble.remove();
+  }, 5000);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
   const profileSection = document.querySelector("#profile");
   const profilePic = document.querySelector("#profile-pic");
   if (profileSection && profilePic) {
     profilePic.addEventListener("click", () =>
-      handleClick(profileSection, profilePic, quotes1)
+      handleClick(profileSection, profilePic, "profile")
     );
-  } else {
-    console.error("Không tìm thấy phần tử ảnh hoặc section profile!");
   }
 
-  // Thiết lập cho ảnh about
   const aboutSection = document.querySelector("#about");
   const aboutPic = aboutSection?.querySelector(".about-pic");
   if (aboutSection && aboutPic) {
     aboutPic.addEventListener("click", () =>
-      handleClick(aboutSection, aboutPic, quotes2)
+      handleClick(aboutSection, aboutPic, "about")
     );
-  } else {
-    console.error("Không tìm thấy phần tử ảnh hoặc section about!");
   }
 });

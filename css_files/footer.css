@@ -1,9 +1,25 @@
-/* ==== FOOTER ==== */
 footer {
-  height: 26vh;
-  margin: 0 1rem;
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto 2.5rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid rgba(214, 179, 122, 0.14);
 }
+
+footer nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+footer .nav-links {
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  font-size: 0.95rem;
+}
+
 footer p {
   text-align: center;
-  color: #8888aa;
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }

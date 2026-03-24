@@ -1,11 +1,38 @@
-body {
-  background: radial-gradient(circle at 20% 30%, #1a1a2e, #0f0f1a);
-  color: #f5f5f5;
-  position: relative;
-  overflow-x: hidden;
-  font-family: "Poppins", sans-serif;
+html {
+  background: var(--bg);
 }
 
-html {
-  scroll-behavior: smooth;
+body {
+  position: relative;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(214, 179, 122, 0.12), transparent 32%),
+    radial-gradient(circle at 85% 18%, rgba(95, 132, 181, 0.18), transparent 24%),
+    linear-gradient(160deg, var(--bg) 0%, #091524 52%, var(--bg-deep) 100%);
+  color: var(--text-primary);
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 28rem;
+  height: 28rem;
+  border-radius: 999px;
+  filter: blur(90px);
+  opacity: 0.34;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
+  top: -6rem;
+  left: -10rem;
+  background: rgba(214, 179, 122, 0.28);
+}
+
+body::after {
+  right: -10rem;
+  bottom: 10vh;
+  background: rgba(87, 125, 173, 0.22);
 }
